@@ -1,13 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
-import { login } from "../actions/login";
-
-const loginAs = (event, dispatch) => {
-    const userId = event.target.value;
-
-    event.preventDefault();
-    dispatch(login(userId));
-};
 
 const SignIn = (props) => {
     return (
@@ -22,7 +13,7 @@ const SignIn = (props) => {
                 <select name="users" id="users" defaultValue="" placeholder="Select a user" className="user-drop-down">
                     <option disabled value=""> -- select a user -- </option>
                     {props.users.map(userId => (
-                        <option key={userId} value={userId} onClick={(e) => loginAs(e, props.dispatch)}>{userId}</option>
+                        <option key={userId} value={userId} onClick={(e) => signInClickHandler(e, props.onSignIn)}>{userId}</option>
                     ))}
 
                 </select> 
@@ -31,10 +22,10 @@ const SignIn = (props) => {
     );
 };
 
-const mapStateToProps = ({ users }) => {
-    return {
-        users: Object.keys(users)
-    };
+const signInClickHandler = (event, callback) => {
+    const userId = event.target.value;
+    event.preventDefault();
+    callback(userId);
 };
 
-export default connect(mapStateToProps)(SignIn);
+export default SignIn;

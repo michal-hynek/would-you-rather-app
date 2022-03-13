@@ -6,7 +6,7 @@ import Home from './components/Home';
 import LeaderBoard from './components/LeaderBoard';
 import NavBar from './components/NavBar';
 import NewQuestion from './components/NewQuestion';
-import SignIn from './components/SignIn';
+import SignInContainer from './components/SignInContainer';
 import { handleInitialData } from './actions/shared';
 
 const mapStateToProps = ({ currentUser }) => {
@@ -35,7 +35,7 @@ const App = (props) => {
                             <Route path="/leader-board" element={<LeaderBoard />} />
                         </Routes>
                     </Fragment>
-                    : <SignIn />
+                    : <SignInContainer />
                 }
             </div>
         </BrowserRouter>

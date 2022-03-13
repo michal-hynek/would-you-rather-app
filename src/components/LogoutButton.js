@@ -1,22 +1,16 @@
 import React from "react";
-import { connect } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { logout } from "../actions/logout";
 
-const logoutCurrentUser = (event, navigate, dispatch) => {
+const logoutClickHandler = (event, callback) => {
     event.preventDefault();
-    dispatch(logout());
-    navigate("/");
+    callback();
 };
 
 const LogoutButton = (props) => {
-    const navigate = useNavigate();
-
     return (
-        <button className="logout-button" onClick={(e) => logoutCurrentUser(e, navigate, props.dispatch)}>
+        <button className="logout-button" onClick={(e) => logoutClickHandler(e, props.onLogout)}>
             Logout
         </button>
     );
 };
 
-export default connect()(LogoutButton);
+export default LogoutButton;

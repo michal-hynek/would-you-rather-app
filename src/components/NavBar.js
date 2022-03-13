@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import LogoutButton from "./LogoutButton";
+import LogoutContainer from "./LogoutContainer";
 
 const NavBar = () => {
     return (
@@ -21,7 +21,7 @@ const NavBar = () => {
                 </NavLink>
             </li>
             <li className="logout-button">
-                <LogoutButton />
+                <LogoutContainer />
             </li>
         </ul>
     );
