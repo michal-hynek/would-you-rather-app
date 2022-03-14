@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const logoutClickHandler = (event, callback) => {
     event.preventDefault();
@@ -11,6 +12,10 @@ const LogoutButton = (props) => {
             Logout
         </button>
     );
+};
+
+LogoutButton.propTypes = {
+    onLogout: PropTypes.func.isRequired,
 };
 
 export default LogoutButton;

@@ -1,4 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
+
+const signInClickHandler = (event, callback) => {
+    const userId = event.target.value;
+    event.preventDefault();
+    callback(userId);
+};
 
 const SignIn = (props) => {
     return (
@@ -22,10 +29,9 @@ const SignIn = (props) => {
     );
 };
 
-const signInClickHandler = (event, callback) => {
-    const userId = event.target.value;
-    event.preventDefault();
-    callback(userId);
+SignIn.propTypes = {
+    users: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onSignIn: PropTypes.func.isRequired,
 };
 
 export default SignIn;
