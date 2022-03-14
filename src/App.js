@@ -26,9 +26,7 @@ const App = (props) => {
             <div className="App">
                 {props.currentUser ?
                     <Fragment>
-                        <header className="App-header">
-                            <NavBar />
-                        </header>
+                        <NavBar />
                         <Routes>
                             <Route path="/" element={<Home />} />
                             <Route path="/questions/new" element={<NewQuestion />} />
