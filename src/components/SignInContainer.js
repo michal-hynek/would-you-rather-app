@@ -1,21 +1,25 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../actions/login";
 import SignIn from "./SignIn";
 
-const loginAs = (userId, dispatch) => {
-    dispatch(login(userId));
-};
-
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = ({ currentUser, users }) => {
     return {
+        currentUser,
         users: Object.keys(users)
     };
 };
 
 const SignInContainer = (props) => {
+    if (props.currentUser) {
+        return (
+            <Navigate to="/" />
+        );
+    }
+
     return (
-        <SignIn users={props.users || []} onSignIn={(userId) => loginAs(userId, props.dispatch)} />
+        <SignIn users={props.users || []} onSignIn={(userId) => props.dispatch(login(userId))} />
     );
 };
 

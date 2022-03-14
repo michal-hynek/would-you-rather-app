@@ -1,8 +1,12 @@
 import React from "react";
+import NavBar from "./NavBar";
 
 const LeaderBoard = () => {
     return (
-        <div>Leader Board</div>
+        <div>
+            <NavBar />
+            <div>Leader Board</div>
+        </div>
     );
 };
 

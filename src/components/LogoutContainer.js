@@ -6,7 +6,7 @@ import LogoutButton from "./LogoutButton";
 
 const logoutCurrentUser = (navigate, dispatch) => {
     dispatch(logout());
-    navigate("/");
+    navigate("/login");
 };
 
 const LogoutContainer = (props) => {
