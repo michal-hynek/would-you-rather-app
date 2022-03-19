@@ -1,13 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 import NavBar from "./NavBar";
+import NewQuestionForm from "./NewQuestionForm";
 
 const NewQuestion = () => {
     return (
         <div>
             <NavBar />
-            <div>New Question</div>
+            <NewQuestionForm />
         </div>
     );
 }
 
-export default NewQuestion;
+export default connect()(NewQuestion);

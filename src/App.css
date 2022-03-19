@@ -93,12 +93,37 @@ li.navigation-link {
   padding-right: 30px;
 }
 
-.leader-board-2 {
+.new-question-subtitle {
+  font-size: large;
+}
+
+.new-question-form {
   display: grid;
-  gap: 20px;
   align-items: center;
   justify-items: center;
   margin-bottom: 3.5em;
+}
+
+.new-question-form input {
+  padding: 5px;
+  font-size: large;
+}
+
+.new-question-form .new-question-option-1 {
+  display: block;
+  width: 450px;
+  margin-bottom: 10px;
+}
+
+.new-question-form .new-question-option-2 {
+  display: block;
+  width: 450px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.new-question-form .new-question-submit {
+  width: 450px;
 }
 
 table.leader-board {
