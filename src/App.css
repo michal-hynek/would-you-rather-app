@@ -106,24 +106,23 @@ li.navigation-link {
 
 .new-question-form input {
   padding: 5px;
+  width: 450px;
   font-size: large;
 }
 
 .new-question-form .new-question-option-1 {
   display: block;
-  width: 450px;
   margin-bottom: 10px;
 }
 
 .new-question-form .new-question-option-2 {
   display: block;
-  width: 450px;
   margin-top: 10px;
   margin-bottom: 25px;
 }
 
 .new-question-form .new-question-submit {
-  width: 450px;
+  width: 100%;
 }
 
 table.leader-board {

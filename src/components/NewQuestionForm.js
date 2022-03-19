@@ -9,7 +9,7 @@ const NewQuestionForm = () => {
                 <input id="option-1" type="text" placeholder="Enter the first option" className="new-question-option-1" />
                 <span>or</span>
                 <input id="option-2" type="text" placeholder="Enter the second option" className="new-question-option-2" />
-                <input id="submit-button" type="submit" value="submit" className="new-question-submit" />
+                <input id="submit-button" type="submit" value="Submit" className="new-question-submit" />
             </form>
         </div>
     );
