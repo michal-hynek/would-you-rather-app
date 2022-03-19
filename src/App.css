@@ -93,6 +93,46 @@ li.navigation-link {
   padding-right: 30px;
 }
 
+.leader-board-2 {
+  display: grid;
+  gap: 20px;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 3.5em;
+}
+
+table.leader-board {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.leader-board td {
+  padding: 20px;
+}
+
+table.leader-board td.user-rank {
+  vertical-align: middle;
+  font-size: x-large;
+}
+
+table.leader-board td.score-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+table.leader-board .answered-questions {
+  padding-bottom: 5px;
+}
+
+table.leader-board .total-score {
+  padding-bottom: 20px;
+}
+
+.total-score {
+  font-weight: bold;
+}
+
 .logout-button {
   float: right;
   padding-right: 30px;
