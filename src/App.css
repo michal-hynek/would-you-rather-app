@@ -133,6 +133,11 @@ table.leader-board .total-score {
   font-weight: bold;
 }
 
+.greeting {
+  float: left;
+  padding-right: 30px;
+}
+
 .logout-button {
   float: right;
   padding-right: 30px;
