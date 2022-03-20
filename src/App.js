@@ -6,7 +6,8 @@ import Home from './components/Home';
 import LeaderBoard from './components/LeaderBoard';
 import NewQuestion from './components/NewQuestion';
 import SignInContainer from './components/SignInContainer';
-import PrivateRoute from './components/utils/PrivateRoute';
+import PrivateRoutes from './components/utils/PrivateRoutes';
+import PageNotFound from './components/PageNotFound';
 import { handleInitialData } from './actions/shared';
 
 const mapStateToProps = ({ currentUser }) => {
@@ -25,29 +26,13 @@ const App = ({ currentUser, dispatch }) => {
         <BrowserRouter>
             <div className="App">
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <PrivateRoute currentUser={currentUser}>
-                                <Home />
-                            </PrivateRoute>
-                        } />
-                    <Route
-                        path="/questions/new"
-                        element={
-                            <PrivateRoute currentUser={currentUser}>
-                                <NewQuestion />
-                            </PrivateRoute>
-                        } />
-                    <Route
-                        path="/leader-board"
-                        element={
-                            <PrivateRoute currentUser={currentUser}>
-                                <LeaderBoard />
-                            </PrivateRoute>
-                        } />
+                    <Route path="/" element={<PrivateRoutes currentUser={currentUser} />}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="questions/new" element={<NewQuestion />} />
+                        <Route path="leader-board" element={<LeaderBoard />} />
+                    </Route>
                     <Route path="/login" element={<SignInContainer />} />
-                    <Route path="/*" element={<p>Page not found</p>} />
+                    <Route path="*" element={<PageNotFound />} />
                 </Routes>
             </div>
         </BrowserRouter>

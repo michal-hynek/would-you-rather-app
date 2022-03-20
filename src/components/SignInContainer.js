@@ -1,7 +1,6 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import PropTypes from 'prop-types';
 import { login } from "../actions/login";
 import SignIn from "./SignIn";
 
@@ -13,20 +12,19 @@ const mapStateToProps = ({ currentUser, users }) => {
 };
 
 const SignInContainer = (props) => {
-    if (props.currentUser) {
-        return (
-            <Navigate to="/" />
-        );
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const handleSignIn = (userId) => {
+        const redirectLocation = location.state?.from ? location.state?.from : "/";
+
+        props.dispatch(login(userId));
+        navigate(redirectLocation);
     }
 
     return (
-        <SignIn users={props.users || []} onSignIn={(userId) => props.dispatch(login(userId))} />
+        <SignIn users={props.users || []} onSignIn={(userId) => handleSignIn(userId)} />
     );
-};
-
-SignInContainer.propTypes = {
-    currentUser: PropTypes.string,
-    users: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default connect(mapStateToProps)(SignInContainer);
