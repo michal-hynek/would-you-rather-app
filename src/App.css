@@ -125,6 +125,16 @@ li.navigation-link {
   width: 100%;
 }
 
+.or {
+  display: block;
+}
+
+.validation-error {
+  color: red;
+  display: block;
+  padding-bottom: 10px;
+}
+
 table.leader-board {
   margin-left: auto;
   margin-right: auto;
