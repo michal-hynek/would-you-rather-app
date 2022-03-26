@@ -1,21 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import NavBar from './NavBar';
+import Question from "./Question";
+import QuestionSwitcher from "./QuestionSwitcher";
 
 const mapStateToProps = (state) => {
-    const answeredQuestions = Object.keys(state.questions)
-        .filter(questionId => {
-            return Object.keys(state.users[state.currentUser].answers).includes(questionId);
-        })
-        .map(questionId => (state.questions[questionId]))
-        .sort((a, b) => b.timestamp - a.timestamp);
+    const answeredQuestions = getQuestions(state, true)
+        .map(questionId => questionDetails(state, questionId))
+        .sort(sortByTimestamp);
 
-    const unansweredQuestions = Object.keys(state.questions)
-        .filter(questionId => {
-            return !Object.keys(state.users[state.currentUser].answers).includes(questionId);
-        })
-        .map(questionId => state.questions[questionId])
-        .sort((a, b) => b.timestamp - a.timestamp);
+    const unansweredQuestions = getQuestions(state, false)
+        .map(questionId => questionDetails(state, questionId))
+        .sort(sortByTimestamp);
 
     return {
         answeredQuestions,
@@ -23,11 +19,45 @@ const mapStateToProps = (state) => {
     };
 };
 
-const Home = (props) => {
+const getQuestions = (state, answered) => {
+    return Object.keys(state.questions).filter(questionId => {
+        const hasAnswer = Object.keys(state.users[state.currentUser].answers).includes(questionId);
+
+        return answered ? hasAnswer : !hasAnswer;
+    });
+};
+
+const questionDetails = (state, questionId) => {
+    const question = state.questions[questionId];
+
+    return {
+        ...question,
+        author: state.users[question?.author],
+        answer: state.users[state.currentUser]?.answers[questionId],
+    };
+};
+
+const sortByTimestamp = (question1, question2) => ( question2.timestamp - question1.timestamp );
+
+const Home = ({ answeredQuestions, unansweredQuestions }) => {
+    const [ selectedQuestions, setSelectedQuestions ] = useState(unansweredQuestions);
+
+    const selectQuestions = (questions) => {
+        setSelectedQuestions(questions);
+    };
+
     return (
         <div>
             <NavBar />
-            <div>Home</div>
+            <QuestionSwitcher
+                initialSelection="unanswered"
+                onSelectQuestions={selectQuestions}
+                unansweredQuestions={unansweredQuestions}
+                answeredQuestions={answeredQuestions} />
+
+            {selectedQuestions.map(q => (
+                <Question key={q.id} question={q} />
+            ))}
         </div>
     );
 };
