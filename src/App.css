@@ -180,6 +180,8 @@ li.navigation-link {
 .question-panel .view-poll {
   grid-column: 2;
   grid-row: 3;
+
+  cursor: pointer;
   padding: .5em;
   margin-top: 10px;
   padding: 10px;

@@ -9,6 +9,7 @@ import SignInContainer from './components/SignInContainer';
 import PrivateRoutes from './components/utils/PrivateRoutes';
 import PageNotFound from './components/PageNotFound';
 import { handleInitialData } from './actions/shared';
+import ViewPoll from './components/ViewPoll';
 
 const mapStateToProps = ({ currentUser }) => {
     return {
@@ -29,6 +30,7 @@ const App = ({ currentUser, dispatch }) => {
                     <Route path="/" element={<PrivateRoutes currentUser={currentUser} />}>
                         <Route path="/" element={<Home />} />
                         <Route path="questions/new" element={<NewQuestion />} />
+                        <Route path="questions/:id" element={<ViewPoll />} />
                         <Route path="leader-board" element={<LeaderBoard />} />
                     </Route>
                     <Route path="/login" element={<SignInContainer />} />

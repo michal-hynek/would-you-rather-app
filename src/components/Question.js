@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ViewPollButton from "./ViewPollButton";
 
 const Question = ({ question }) => {
     const optionOneStyle = question.answer === 'optionOne' ? 'answered-option-one' : 'option-one';
@@ -18,7 +19,7 @@ const Question = ({ question }) => {
                 <span className={optionOneStyle}>{question.optionOne.text}</span>
                 <span className={optionTwoStyle}>{question.optionTwo.text}</span>
             </div>
-            <button className="view-poll">View Poll</button>
+            <ViewPollButton questionId={question.id} />
         </div>
     );
 };
