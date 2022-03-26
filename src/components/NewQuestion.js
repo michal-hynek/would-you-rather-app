@@ -15,7 +15,7 @@ const NewQuestion = ({ author, dispatch }) => {
         dispatch(saveNewQuestion({
             author,
             optionOneText: option1,
-            optionTwoTest: option2,
+            optionTwoText: option2,
         }));
     };
 
