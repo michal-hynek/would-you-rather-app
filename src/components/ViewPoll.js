@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import NavBar from "./NavBar";
 import AnswerPoll from "./AnswerPoll";
 import ViewPollResults from "./ViewPollResults";

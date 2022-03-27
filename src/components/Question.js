@@ -9,8 +9,8 @@ const Question = ({ question }) => {
     return (
         <div className="question-panel">
             <div className="author">
-                <a href="https://www.flaticon.com/free-icons/person" title="person icons" target="_blank">
-                    <img src={question.author.avatarURL} alt="User's avatar image - person icons created by Vitaly Gorbached - Flaticon" />
+                <a href="https://www.flaticon.com/free-icons/person" title="person icons" target="_blank" rel="noreferrer">
+                    <img src={question.author.avatarURL} alt="User's avatar - person icons created by Vitaly Gorbached - Flaticon" />
                 </a>
                 <span className="author-asks">{question.author.name} asks</span>
             </div>

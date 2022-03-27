@@ -8,8 +8,8 @@ const UserScorePanel = ({ rank, username, avatarURL, score, answeredQuestions, c
                 {rank}.
             </td>
             <td className="user-info">
-                <a href="https://www.flaticon.com/free-icons/person" title="person icons" target="_blank">
-                    <img src={avatarURL} alt="User's avatar image - person icons created by Vitaly Gorbached - Flaticon" />
+                <a href="https://www.flaticon.com/free-icons/person" title="person icons" target="_blank" rel="noreferrer">
+                    <img src={avatarURL} alt="User's avatar - person icons created by Vitaly Gorbached - Flaticon" />
                 </a>
                 <div className="username">{username}</div>
             </td>

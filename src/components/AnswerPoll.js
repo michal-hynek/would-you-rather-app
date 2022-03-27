@@ -14,8 +14,8 @@ const AnswerPoll = ({ author, question, onAnswerPoll }) => {
     return (
         <div className="answer-poll-panel">
             <div className="author">
-                <a href="https://www.flaticon.com/free-icons/person" title="person icons" target="_blank">
-                    <img src={author.avatarURL} alt="User's avatar image - person icons created by Vitaly Gorbached - Flaticon" />
+                <a href="https://www.flaticon.com/free-icons/person" title="person icons" target="_blank" rel="noreferrer">
+                    <img src={author.avatarURL} alt="User's avatar - person icons created by Vitaly Gorbached - Flaticon" />
                 </a>
                 <span className="author-asks">{author.name} asks</span>
             </div>
