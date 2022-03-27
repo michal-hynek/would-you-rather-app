@@ -29,9 +29,9 @@ const App = ({ currentUser, dispatch }) => {
                 <Routes>
                     <Route path="/" element={<PrivateRoutes currentUser={currentUser} />}>
                         <Route path="/" element={<Home />} />
-                        <Route path="questions/new" element={<NewQuestion />} />
+                        <Route path="add" element={<NewQuestion />} />
                         <Route path="questions/:id" element={<ViewPoll />} />
-                        <Route path="leader-board" element={<LeaderBoard />} />
+                        <Route path="leaderboard" element={<LeaderBoard />} />
                     </Route>
                     <Route path="/login" element={<SignInContainer />} />
                     <Route path="*" element={<PageNotFound />} />

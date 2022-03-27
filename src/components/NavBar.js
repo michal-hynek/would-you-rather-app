@@ -12,7 +12,7 @@ const NavBar = () => {
                     </NavLink>
                 </li>
                 <li className="navigation-link">
-                    <NavLink to="/questions/new" className={({ isActive }) => isActive ? 'active-link' : 'navigation-link'}>
+                    <NavLink to="/add" className={({ isActive }) => isActive ? 'active-link' : 'navigation-link'}>
                         New Question
                     </NavLink>
                 </li>
