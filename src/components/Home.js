@@ -12,7 +12,7 @@ const mapStateToProps = (state) => {
     const unansweredQuestions = getQuestions(state, false)
         .map(questionId => questionDetails(state, questionId))
         .sort(sortByTimestamp);
-
+    
     return {
         answeredQuestions,
         unansweredQuestions,
@@ -40,20 +40,23 @@ const questionDetails = (state, questionId) => {
 const sortByTimestamp = (question1, question2) => ( question2.timestamp - question1.timestamp );
 
 const Home = ({ answeredQuestions, unansweredQuestions }) => {
-    const [ selectedQuestions, setSelectedQuestions ] = useState(unansweredQuestions);
+    const [ selectedQuestionType, setSelectedQuestionType ] = useState("unanswered");
 
-    const selectQuestions = (questions) => {
-        setSelectedQuestions(questions);
+    const selectQuestions = (questionType) => {
+        setSelectedQuestionType(questionType);
     };
+
+    let selectedQuestions = [];
+    if (selectedQuestionType === "answered") {
+        selectedQuestions = answeredQuestions;
+    } else if (selectedQuestionType === "unanswered") {
+        selectedQuestions = unansweredQuestions;
+    }
 
     return (
         <div>
             <NavBar />
-            <QuestionSwitcher
-                initialSelection="unanswered"
-                onSelectQuestions={selectQuestions}
-                unansweredQuestions={unansweredQuestions}
-                answeredQuestions={answeredQuestions} />
+            <QuestionSwitcher initialSelection="unanswered" onSelectQuestions={selectQuestions} />
 
             {selectedQuestions.map(q => (
                 <Question key={q.id} question={q} />

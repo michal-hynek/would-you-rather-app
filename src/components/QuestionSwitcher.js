@@ -7,11 +7,9 @@ const QuestionSwitcher = (props) => {
     const answeredStyle = selectedType === "answered" ? "selected" : null;
 
     const selectQuestions = (event, type) => {
-        const selectedQuestions = type === "answered" ? props.answeredQuestions : props.unansweredQuestions;
-
         event.preventDefault();
         setSelectedType(type);
-        props.onSelectQuestions(selectedQuestions);
+        props.onSelectQuestions(type);
     };
 
     return (
@@ -38,8 +36,6 @@ const QuestionSwitcher = (props) => {
 
 QuestionSwitcher.propTypes = {
     initialSelection: PropTypes.string.isRequired,
-    answeredQuestions: PropTypes.array.isRequired,
-    unansweredQuestions: PropTypes.array.isRequired,
     onSelectQuestions: PropTypes.func.isRequired,
 };
 
