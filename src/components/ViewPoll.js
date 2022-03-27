@@ -5,6 +5,7 @@ import NavBar from "./NavBar";
 import AnswerPoll from "./AnswerPoll";
 import ViewPollResults from "./ViewPollResults";
 import { answerQuestion } from "../actions/questions";
+import PageNotFound from "./PageNotFound";
 
 const mapStateToProps = (state) => {
     return {
@@ -19,9 +20,10 @@ const ViewPoll = ({ currentUser, users, questions, dispatch }) => {
     const { id } = useParams();
 
     const question = questions[id];
-    const author = users[question.author];
+    const author = users[question?.author];
     const selectedOption = users[currentUser].answers[id];
     const userAnswered = !!selectedOption;
+    const pageNotFound = !question;
 
     const submitPollAnswer = (questionId, answer) => {
         dispatch(answerQuestion({
@@ -34,9 +36,11 @@ const ViewPoll = ({ currentUser, users, questions, dispatch }) => {
     return (
         <div>
             <NavBar />
-            {userAnswered
-                ? <ViewPollResults author={author} question={question} selectedOption={selectedOption} />
-                : <AnswerPoll author={author} question={question} onAnswerPoll={submitPollAnswer} />
+            {pageNotFound
+                ? <PageNotFound />
+                : userAnswered
+                    ? <ViewPollResults author={author} question={question} selectedOption={selectedOption} />
+                    : <AnswerPoll author={author} question={question} onAnswerPoll={submitPollAnswer} />
             }
         </div>
     );
