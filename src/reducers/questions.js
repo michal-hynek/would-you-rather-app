@@ -11,6 +11,18 @@ export const questions = (state = {}, action) => {
                 [action.question.id]: action.question,
             };
         
+        case QUESTION_ANSWERED:
+            return {
+                ...state,
+                [action.questionId]: {
+                    ...state[action.questionId],
+                    [action.answer]: {
+                        ...state[action.questionId][action.answer],
+                        votes: state[action.questionId][action.answer].votes.concat([action.userId]),
+                    }
+                },
+            };
+        
         default:
             return state;
     } 

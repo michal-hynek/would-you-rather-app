@@ -19,9 +19,9 @@ const ViewPollResults = ({ author, question, selectedOption }) => {
             <div className="options">
                 <span className="prompt">Would you rather:</span>
                 <span className={optionOneStyle}>{question.optionOne.text}</span>
-                <span className="option-one-result">{optionOneVotes / totalVotes * 100}% ({optionOneVotes} of {totalVotes})</span>
+                <span className="option-one-result">{Math.round(optionOneVotes / totalVotes * 100)}% ({optionOneVotes} of {totalVotes})</span>
                 <span className={optionTwoStyle}>{question.optionTwo.text}</span>
-                <span className="option-two-result">{optionTwoVotes / totalVotes * 100}% ({optionTwoVotes} of {totalVotes})</span>
+                <span className="option-two-result">{Math.round(optionTwoVotes / totalVotes * 100)}% ({optionTwoVotes} of {totalVotes})</span>
             </div>
         </div>
     );
