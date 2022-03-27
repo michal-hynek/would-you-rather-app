@@ -187,6 +187,76 @@ li.navigation-link {
   padding: 10px;
 }
 
+.poll-result-panel {
+  display: grid;
+  grid-template-columns: minmax(10px, 3fr) 3fr minmax(10px, 3fr);
+  gap: 10px;
+  margin-bottom: 3em;
+}
+
+.poll-result-panel .author {
+  grid-column: 2 / 3;
+  grid-row: 1;
+}
+
+.poll-result-panel .author-asks {
+  vertical-align: top;
+  padding-left: 0.3em;
+}
+
+.poll-result-panel .options {
+  display: grid;
+  grid-template-columns: repeat(3 1fr);
+  gap: 10px;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.poll-result-panel .options .prompt {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: right;
+  padding-right: 30px;
+}
+
+.poll-result-panel .options .option-one {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: left;
+}
+
+.poll-result-panel .options .option-one-result {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: left;
+}
+
+.poll-result-panel .options .answered-option-one {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: left;
+  font-weight: bold;
+}
+
+.poll-result-panel .option-two {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: left;
+}
+
+.poll-result-panel .options .option-two-result {
+  grid-column: 3;
+  grid-row: 2;
+  justify-self: left;
+}
+
+.poll-result-panel .options .answered-option-two {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: left;
+  font-weight: bold;
+}
+
 .new-question-subtitle {
   font-size: large;
 }

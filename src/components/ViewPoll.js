@@ -7,19 +7,25 @@ import ViewPollResults from "./ViewPollResults";
 
 const mapStateToProps = (state) => {
     return {
+        currentUser: state.currentUser,
+        users: state.users,
+        questions: state.questions,
         userAnswers: state.users[state.currentUser]?.answers,
     };
 }
 
-const ViewPoll = ({ userAnswers }) => {
+const ViewPoll = ({ currentUser, users, questions, userAnswers, questionId }) => {
     const { id } = useParams();
-    const userAnswered = !!userAnswers[id];
-    
+    const question = questions[id];
+    const author = users[question.author];
+    const selectedOption = users[currentUser].answers[id];
+    const userAnswered = !!selectedOption;
+
     return (
         <div>
             <NavBar />
             {userAnswered
-                ? <ViewPollResults />
+                ? <ViewPollResults author={author} question={question} selectedOption={selectedOption} />
                 : <SubmitPoll />
             }
         </div>
