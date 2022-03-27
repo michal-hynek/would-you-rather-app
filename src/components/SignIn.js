@@ -17,12 +17,17 @@ const SignIn = (props) => {
                 <img src="logo192.png" width="192px" alt="React Logo" />
 
                 <label htmlFor="users" className="user-drop-down-label">Sign in as:</label>
-                <select name="users" id="users" defaultValue="" placeholder="Select a user" className="user-drop-down">
+                <select id="users"
+                    name="users"
+                    defaultValue=""
+                    placeholder="Select a user"
+                    onChange={e => signInClickHandler(e, props.onSignIn)}
+                    className="user-drop-down"
+                >
                     <option disabled value=""> -- select a user -- </option>
                     {props.users.map(userId => (
-                        <option key={userId} value={userId} onClick={(e) => signInClickHandler(e, props.onSignIn)}>{userId}</option>
+                        <option key={userId} value={userId}>{userId}</option>
                     ))}
-
                 </select> 
             </div>
         </div>
